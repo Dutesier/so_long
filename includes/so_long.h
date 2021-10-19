@@ -6,7 +6,7 @@
 /*   By: dareias- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 09:07:34 by dareias-          #+#    #+#             */
-/*   Updated: 2021/10/19 17:43:21 by dareias-         ###   ########.fr       */
+/*   Updated: 2021/10/19 17:57:23 by dareias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,16 +98,7 @@ void	ft_init_textures(t_us *us);
 int		 map_init(t_us *us, char *filename);
 void	fetch_p_location(t_us *us);
 
-//Tests
-void	pxl_to_img(t_data *img, int x, int y, int color);
-void	whole_img(t_data *img, int color, int x, int y);
-int		render_frame(t_us *us);
 
-int		key_hook(int keycode, t_vars *vars);
-int		hello(int keycode, t_vars *vars);
-int		ft_close(int keycode, t_vars *vars);
-
-int		changecolor(int keycode, t_us *us);
 //Hooks
 int key_movement(int keycode, t_us *us);
 void store_move(int keycode, t_us *us);

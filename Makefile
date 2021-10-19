@@ -6,7 +6,7 @@
 #    By: dareias- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 19:34:16 by dareias-          #+#    #+#              #
-#    Updated: 2021/10/19 17:47:59 by dareias-         ###   ########.fr        #
+#    Updated: 2021/10/19 17:56:32 by dareias-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,9 +40,7 @@ CURSIVE='\033[3m'
 # Files
 INC		= -I ./mlx -I ./includes
 SRCS	= srcs/main.c \
-		  srcs/display.c \
 		  srcs/hooks.c \
-		  srcs/loops.c \
 		  srcs/render.c \
 		  srcs/movement.c \
 		  srcs/gamestate.c \
