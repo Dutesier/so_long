@@ -6,7 +6,7 @@
 /*   By: dareias- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:19:52 by dareias-          #+#    #+#             */
-/*   Updated: 2021/10/19 17:32:02 by dareias-         ###   ########.fr       */
+/*   Updated: 2021/10/19 18:36:04 by dareias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_open_map(char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-		return (0); // ERROR FUNCTION
+		return (0);
 	return (fd);
 }
 
@@ -29,7 +29,8 @@ static int	fill_map(char *line, int y, t_us *us)
 
 	if (y == 0)
 		us->map.size_x = ft_strlen(line);
-	us->map.tileset[y] = malloc((us->map.size_x + 1) * sizeof(char));
+	//us->map.tileset[y] = malloc((us->map.size_x + 1) * sizeof(char));
+	us->map.tileset[y] = malloc((ft_strlen(line) + 1) * sizeof(char));
 	if (us->map.tileset[y] == NULL)
 		return (0); // NEEDS ERROR HANDLING
 	x = 0;
@@ -42,7 +43,6 @@ static int	fill_map(char *line, int y, t_us *us)
 	return (1);
 }
 
-// 
 int	create_map(int fd, t_us *us)
 {
 	int		y;
@@ -51,10 +51,10 @@ int	create_map(int fd, t_us *us)
 
 	err = 1;
 	y = 0;
-	line = NULL; // THIS might mess up gnl!
+	line = NULL;
 	us->map.tileset = malloc((us->map.size_y + 1) * sizeof(char *));
 	if (us->map.tileset == NULL)
-		return (0);//NEEDS ERROR HANDLING 
+		return (0);
 	while (y < us->map.size_y && err == 1)
 	{
 		get_next_line(fd, &line, 1);
@@ -92,7 +92,11 @@ int map_init(t_us *us, char *filename)
 
 	us->map.size_y = map_to_line(filename);
 	fd = ft_open_map(filename);
+	if (fd == 0)
+		return (2);
 	err = create_map(fd, us);
+	if (err == 0)
+		return (1);
 	close(fd);
 	err = map_error(us);
 	if (err)
