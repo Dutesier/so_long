@@ -6,7 +6,7 @@
 /*   By: dareias- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:19:52 by dareias-          #+#    #+#             */
-/*   Updated: 2021/10/19 15:03:56 by dareias-         ###   ########.fr       */
+/*   Updated: 2021/10/19 17:32:02 by dareias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,13 @@ int map_init(t_us *us, char *filename)
 	fd = ft_open_map(filename);
 	err = create_map(fd, us);
 	close(fd);
-	if (map_len(us) || map_closed(us) || map_min(us, 0, 0, 0))
+	err = map_error(us);
+	if (err)
 	{
 		//delete map and return
 		clean_map(us);
+		printf("Error\n");
+		map_error_msg(err);
 		return (1);
 	}
 	return (0);

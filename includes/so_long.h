@@ -6,7 +6,7 @@
 /*   By: dareias- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 09:07:34 by dareias-          #+#    #+#             */
-/*   Updated: 2021/10/19 16:35:55 by dareias-         ###   ########.fr       */
+/*   Updated: 2021/10/19 17:43:21 by dareias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,10 @@ int gamestate(t_us *us);
 int	map_len(t_us *us);
 int map_closed(t_us *us);
 int map_min(t_us *us, int p, int e, int c);
+int map_keys(t_us *us);
+int	is_invalid_key(char k);
+int		map_error(t_us *us);
+void	map_error_msg(int error);
 
 //Utils
 int	ft_strcmp(char *one, char *two);

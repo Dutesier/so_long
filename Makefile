@@ -6,7 +6,7 @@
 #    By: dareias- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 19:34:16 by dareias-          #+#    #+#              #
-#    Updated: 2021/10/19 13:04:29 by dareias-         ###   ########.fr        #
+#    Updated: 2021/10/19 17:47:59 by dareias-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ SRCS	= srcs/main.c \
 		  render/textures.c \
 		  render/ft_map.c \
 		  render/map_checker.c \
+		  render/map_checker_utils.c \
 		  render/sprite.c \
 		  render/tile.c \
 		  utils/ft_strcmp.c \
