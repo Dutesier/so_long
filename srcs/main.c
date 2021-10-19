@@ -6,7 +6,7 @@
 /*   By: dareias- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 09:09:20 by dareias-          #+#    #+#             */
-/*   Updated: 2021/10/19 13:10:26 by dareias-         ###   ########.fr       */
+/*   Updated: 2021/10/19 16:02:41 by dareias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 static void so_long_init(t_us *us)
 {
-	us->player.x = -1;
-	us->player.y = -1;
 	us->gstate = 1;
 	us->moves = 0;
 	us->player.coins = 0;
@@ -64,8 +62,12 @@ int main(int argc, char *argv[])
 	
 	ft_map_to_img(&us);
 	ft_consumables(&us);	
+	fetch_p_location(&us);
+	us.player.next_x = us.player.x;
+	us.player.next_y = us.player.y;
+
 	render_sprite(&us);
-	mlx_hook(us.vars.win, 2, 1L<<0, key_movement, &us);
+	mlx_key_hook(us.vars.win, key_movement, &us);
 	mlx_loop_hook(us.vars.mlx, gamestate, &us);
 	//ft_load_bg(&us);
 

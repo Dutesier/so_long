@@ -6,7 +6,7 @@
 /*   By: dareias- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 09:07:34 by dareias-          #+#    #+#             */
-/*   Updated: 2021/10/19 13:02:36 by dareias-         ###   ########.fr       */
+/*   Updated: 2021/10/19 16:02:39 by dareias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,12 @@ typedef struct	s_us {
 void	startWindow(t_us *us);
 void	ft_init_textures(t_us *us);
 int		 map_init(t_us *us, char *filename);
+void	fetch_p_location(t_us *us);
 
 //Tests
 void	pxl_to_img(t_data *img, int x, int y, int color);
 void	whole_img(t_data *img, int color, int x, int y);
 int		render_frame(t_us *us);
-void	ft_load_bg(t_us *us);
 
 int		key_hook(int keycode, t_vars *vars);
 int		hello(int keycode, t_vars *vars);
@@ -135,5 +135,6 @@ int	ft_strcmp(char *one, char *two);
 
 //Cleaning
 int	clean_map(t_us *us);
+void end_game(t_us *us);
 
 #endif

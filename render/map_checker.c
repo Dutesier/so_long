@@ -6,7 +6,7 @@
 /*   By: dareias- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 18:00:21 by dareias-          #+#    #+#             */
-/*   Updated: 2021/10/18 18:02:27 by dareias-         ###   ########.fr       */
+/*   Updated: 2021/10/19 15:04:28 by dareias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,11 @@ int	map_to_line(char *filename) // Need to open and close file to reset read loc
 	close(fd);
 	if (ret < 0)
 		return (-1); // or some error msg
-	printf("Exiting map_to_line with nl: %i & buff: %c\n", nl, buff);
 	return (nl);
 }
 
 int	map_len(t_us *us)
 {
-	printf("Map lens\n");
 	int len;
 	int y;
 
@@ -47,7 +45,6 @@ int	map_len(t_us *us)
 	len = us->map.size_x;
 	while (us->map.tileset[y] != NULL)
 	{
-		printf("map len y: %i\n", y);
 		if (ft_strlen(us->map.tileset[y]) != len)
 			return (1);
 		y++;
@@ -57,7 +54,6 @@ int	map_len(t_us *us)
 
 int map_closed(t_us *us)
 {
-	printf("Map clos\n");
 	int x;
 	int y;
 
@@ -80,7 +76,6 @@ int map_closed(t_us *us)
 
 int map_min(t_us *us, int p, int e, int c)
 {
-	printf("Map min\n");
 	int x;
 	int y;
 

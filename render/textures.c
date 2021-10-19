@@ -6,7 +6,7 @@
 /*   By: dareias- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 12:54:15 by dareias-          #+#    #+#             */
-/*   Updated: 2021/10/19 13:20:06 by dareias-         ###   ########.fr       */
+/*   Updated: 2021/10/19 15:04:37 by dareias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,9 @@ void	ft_init_textures(t_us *us)
 
 void *ft_textu(char tile, t_us *us)
 {
-	printf("ft_textu\n");
 	if (tile == '1')
 		return (us->texture.b);
 	else
 		return (us->texture.a);
 }
 
-void ft_load_bg(t_us *us)
-{
-	us->texture.img = mlx_png_file_to_image(us->vars.mlx, ft_texture("bg"), &us->texture.img_width, &us->texture.img_height);
-	mlx_put_image_to_window(us->vars.mlx, us->vars.win, us->texture.img, 0, 0);
-	
-}

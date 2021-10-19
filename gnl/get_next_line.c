@@ -6,7 +6,7 @@
 /*   By: dareias- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:36:52 by dareias-          #+#    #+#             */
-/*   Updated: 2021/10/15 17:31:21 by dareias-         ###   ########.fr       */
+/*   Updated: 2021/10/19 16:03:01 by dareias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ static char	*ft_separate_line(char **line, char *holder_fd, int ret)
 	else if (ret == 0) // already read till EOF
 	{
 		*line = holder_fd;
-		printf("Line when assigned in gnl: %s\n", *line);
 		holder_fd = NULL;
 	}
 	return (holder_fd);

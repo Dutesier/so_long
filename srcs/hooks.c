@@ -6,7 +6,7 @@
 /*   By: dareias- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:32:12 by dareias-          #+#    #+#             */
-/*   Updated: 2021/10/19 13:14:34 by dareias-         ###   ########.fr       */
+/*   Updated: 2021/10/19 15:04:50 by dareias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	key_hook(int keycode, t_vars *vars)
 	t_vars	*dump;
 
 	dump = vars;
-	printf("Pressed %i\n", keycode);
 	return (keycode);
 }
 
@@ -44,7 +43,6 @@ int	hello(int keycode, t_vars *vars)
 	t_vars	*dump;
 
 	dump = vars;
-	printf("Hello\n");
 	return (keycode);
 }
 
@@ -52,6 +50,5 @@ int changecolor(int keycode, t_us *us)
 {
 	mlx_put_image_to_window(us->vars.mlx, us->vars.win, us->nxt.img, 0, 0);
 	keycode = 0;
-	printf("Hello\n");
 	return (1);
 }

@@ -6,13 +6,13 @@
 /*   By: dareias- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 10:30:30 by dareias-          #+#    #+#             */
-/*   Updated: 2021/10/18 17:35:23 by dareias-         ###   ########.fr       */
+/*   Updated: 2021/10/19 16:02:37 by dareias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	fetch_p_location(t_us *us)
+void	fetch_p_location(t_us *us)
 {
 	int	x;
 	int	y;
