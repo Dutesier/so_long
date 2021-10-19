@@ -6,7 +6,7 @@
 /*   By: dareias- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 09:07:34 by dareias-          #+#    #+#             */
-/*   Updated: 2021/10/19 16:02:39 by dareias-         ###   ########.fr       */
+/*   Updated: 2021/10/19 16:35:55 by dareias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct	s_extu{
 	void	*c;
 	void	*e;
 	void	*p;
+	void	*p_alt;
 	int		img_width;
 	int		img_height;
 }				t_extu;
@@ -75,6 +76,7 @@ typedef struct	s_play{
 	int		next_x;
 	int		next_y;
 	int		coins;
+	int		d;
 }				t_play;
 
 typedef struct	s_us {
@@ -120,6 +122,7 @@ int	map_to_line(char *filename);
 void	render_sprite(t_us *us);
 void	render_tile(t_us *us, char nickname, int x, int y);
 void	ft_consumables(t_us *us);
+void	update_direction(t_us *us);
 
 //Gamestate
 void max_coins(t_us *us);

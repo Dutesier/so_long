@@ -6,11 +6,19 @@
 /*   By: dareias- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 10:30:30 by dareias-          #+#    #+#             */
-/*   Updated: 2021/10/19 16:02:37 by dareias-         ###   ########.fr       */
+/*   Updated: 2021/10/19 16:33:41 by dareias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	update_direction(t_us *us)
+{
+	if (us->player.x > us->player.next_x)
+		us->player.d = 'L';
+	else
+		us->player.d = 'R';
+}
 
 void	fetch_p_location(t_us *us)
 {
@@ -40,5 +48,8 @@ void	render_sprite(t_us *us)
 {
 	if (us->player.x < 0 && us->player.y < 0)
 		fetch_p_location(us);	
-	mlx_put_image_to_window(us->vars.mlx, us->vars.win, us->texture.p, us->player.x * A_W, us->player.y * A_H);
+	if (us->player.d == 'L')
+		mlx_put_image_to_window(us->vars.mlx, us->vars.win, us->texture.p_alt, us->player.x * A_W, us->player.y * A_H);
+	else
+		mlx_put_image_to_window(us->vars.mlx, us->vars.win, us->texture.p, us->player.x * A_W, us->player.y * A_H);
 }

@@ -6,7 +6,7 @@
 /*   By: dareias- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 15:14:53 by dareias-          #+#    #+#             */
-/*   Updated: 2021/10/19 16:10:24 by dareias-         ###   ########.fr       */
+/*   Updated: 2021/10/19 16:35:25 by dareias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	check_move(t_us *us)
 
 static void	move_sprite(t_us *us)
 {
+	update_direction(us);
 	us->player.x = us->player.next_x;
 	us->player.y = us->player.next_y;
 	us->moves++;

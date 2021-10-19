@@ -6,7 +6,7 @@
 /*   By: dareias- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 09:09:20 by dareias-          #+#    #+#             */
-/*   Updated: 2021/10/19 16:02:41 by dareias-         ###   ########.fr       */
+/*   Updated: 2021/10/19 16:19:38 by dareias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int main(int argc, char *argv[])
 	//us.res.size_y = 100 * us.map.size_y;
 	so_long_init(&us);
 	startWindow(&us);
-
 	// Testing Screen Size
 	/*int sizex;
 	int sizey;

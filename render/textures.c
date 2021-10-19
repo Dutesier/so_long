@@ -6,7 +6,7 @@
 /*   By: dareias- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 12:54:15 by dareias-          #+#    #+#             */
-/*   Updated: 2021/10/19 15:04:37 by dareias-         ###   ########.fr       */
+/*   Updated: 2021/10/19 16:35:27 by dareias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static char	*ft_texture(char *nickname)
 		return ("./assets/b.png");
 	if (ft_strcmp(nickname, "P"))
 		return ("./assets/p.png");
+	if (ft_strcmp(nickname, "A"))
+		return ("./assets/p_alt.png");
 	if (ft_strcmp(nickname, "C"))
 		return ("./assets/c.png");
 	if (ft_strcmp(nickname, "E"))
@@ -35,6 +37,7 @@ void	ft_init_textures(t_us *us)
 	us->texture.a = mlx_png_file_to_image(us->vars.mlx, ft_texture("0"), &us->texture.img_width, &us->texture.img_height);
 	us->texture.b = mlx_png_file_to_image(us->vars.mlx, ft_texture("1"), &us->texture.img_width, &us->texture.img_height);
 	us->texture.p = mlx_png_file_to_image(us->vars.mlx, ft_texture("P"), &us->texture.img_width, &us->texture.img_height);
+	us->texture.p_alt = mlx_png_file_to_image(us->vars.mlx, ft_texture("A"), &us->texture.img_width, &us->texture.img_height);
 	us->texture.c = mlx_png_file_to_image(us->vars.mlx, ft_texture("C"), &us->texture.img_width, &us->texture.img_height);
 	us->texture.e = mlx_png_file_to_image(us->vars.mlx, ft_texture("E"), &us->texture.img_width, &us->texture.img_height);
 

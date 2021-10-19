@@ -6,7 +6,7 @@
 /*   By: dareias- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 18:30:26 by dareias-          #+#    #+#             */
-/*   Updated: 2021/10/19 15:05:03 by dareias-         ###   ########.fr       */
+/*   Updated: 2021/10/19 16:19:55 by dareias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	startWindow(t_us *us)
 	us->res.size_y = A_H * us->map.size_y;
 	mlx_get_screen_size(us->vars.mlx, &us->res.max_x, &us->res.max_y);
 	if (us->res.size_x > us->res.max_x || us->res.size_y > us->res.max_y)
-		return ;// INSERT error msg about screen
+		printf("Warning: Map too big to fit in screen\n");	
 	us->vars.win = mlx_new_window(us->vars.mlx, us->res.size_x, us->res.size_y, "so_long");
 }
