@@ -6,7 +6,7 @@
 /*   By: dareias- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:19:52 by dareias-          #+#    #+#             */
-/*   Updated: 2021/10/19 18:36:04 by dareias-         ###   ########.fr       */
+/*   Updated: 2021/10/19 21:14:21 by dareias-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static int	ft_open_map(char *filename)
 {
 	int	fd;
-
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)

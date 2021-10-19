@@ -6,28 +6,28 @@
 #    By: dareias- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 19:34:16 by dareias-          #+#    #+#              #
-#    Updated: 2021/10/19 17:56:32 by dareias-         ###   ########.fr        #
+#    Updated: 2021/10/19 20:24:57 by dareias-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Project Name
-NAME	= so_long
+NAME	=	so_long
 
 # Compiler
-CC		= gcc
+CC		=	gcc
 
 # Flags
-CFLAGS	= -Wall -Werror -Wextra
-MLXF	= -L ./mlx -lmlx -framework OpenGL -framework AppKit
+CFLAGS	=	-Wall -Werror -Wextra
+MLXF	=	-L ./mlx -lmlx -framework OpenGL -framework AppKit
 
 # Library Management
-AR		= ar rc
-L_FDER	= lib
-L_FLE	= so_long.a
+AR		=	ar rc
+L_FDER	=	lib
+L_FLE	=	so_long.a
 
 # Folder Management
-RM		= rm -rf
-MKFDER	= mkdir -p
+RM		=	rm -rf
+MKFDER	=	mkdir -p
 
 # Colors
 NONE='\033[0m'
@@ -56,7 +56,7 @@ SRCS	= srcs/main.c \
 		  gnl/get_next_line_utils.c \
 		  
 
-OBJS	= ${SRCS:.c=.o}
+OBJS	=	${SRCS:.c=.o}
 
 # Rules
 .c.o:
@@ -85,4 +85,3 @@ norm:
 			norminette ${INC} ${SRCS}
 
 .PHONY:		all clean fclean re
-
