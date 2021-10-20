@@ -12,29 +12,29 @@
 
 #include "so_long.h"
 
-void end_game(t_us *us)
+void	end_game(t_us *us)
 {
 	clean_map(us);
-	mlx_destroy_image(us->vars.mlx, us->texture.a);
-	mlx_destroy_image(us->vars.mlx, us->texture.b);
-	mlx_destroy_image(us->vars.mlx, us->texture.c);
-	mlx_destroy_image(us->vars.mlx, us->texture.e);
-	mlx_destroy_image(us->vars.mlx, us->texture.p);
-	mlx_destroy_image(us->vars.mlx, us->texture.p_alt);
+	mlx_destroy_image(us->vars.mlx, us->tex.a);
+	mlx_destroy_image(us->vars.mlx, us->tex.b);
+	mlx_destroy_image(us->vars.mlx, us->tex.c);
+	mlx_destroy_image(us->vars.mlx, us->tex.e);
+	mlx_destroy_image(us->vars.mlx, us->tex.p);
+	mlx_destroy_image(us->vars.mlx, us->tex.p_alt);
 	mlx_destroy_window(us->vars.mlx, us->vars.win);
 	exit(0);
 }
 
 int	clean_map(t_us *us)
 {
-	int y;
+	int	y;
 
 	y = 0;
-	while (us->map.tileset[y] != NULL)
+	while (us->map.tile[y] != NULL)
 	{
-		free(us->map.tileset[y]);
+		free(us->map.tile[y]);
 		y++;
 	}
-	free(us->map.tileset);
+	free(us->map.tile);
 	return (0);
 }

@@ -14,7 +14,7 @@
 
 int	ft_strcmp(char *one, char *two)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (one[i] != '\0' && two[i] != '\0')

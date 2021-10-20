@@ -28,17 +28,16 @@ static int	fill_map(char *line, int y, t_us *us)
 
 	if (y == 0)
 		us->map.size_x = ft_strlen(line);
-	//us->map.tileset[y] = malloc((us->map.size_x + 1) * sizeof(char));
-	us->map.tileset[y] = malloc((ft_strlen(line) + 1) * sizeof(char));
-	if (us->map.tileset[y] == NULL)
-		return (0); // NEEDS ERROR HANDLING
+	us->map.tile[y] = malloc((ft_strlen(line) + 1) * sizeof(char));
+	if (us->map.tile[y] == NULL)
+		return (0);
 	x = 0;
 	while (line[x] != '\0')
 	{
-		us->map.tileset[y][x] = line[x];
+		us->map.tile[y][x] = line[x];
 		x++;
 	}
-	us->map.tileset[y][x] = '\0';
+	us->map.tile[y][x] = '\0';
 	return (1);
 }
 
@@ -51,8 +50,8 @@ int	create_map(int fd, t_us *us)
 	err = 1;
 	y = 0;
 	line = NULL;
-	us->map.tileset = malloc((us->map.size_y + 1) * sizeof(char *));
-	if (us->map.tileset == NULL)
+	us->map.tile = malloc((us->map.size_y + 1) * sizeof(char *));
+	if (us->map.tile == NULL)
 		return (0);
 	while (y < us->map.size_y && err == 1)
 	{
@@ -62,14 +61,14 @@ int	create_map(int fd, t_us *us)
 	}
 	if (err == 0)
 		return (clean_map(us));
-	us->map.tileset[y] = NULL;
+	us->map.tile[y] = NULL;
 	return (1);
 }
 
-void ft_map_to_img(t_us *us)
+void	ft_map_to_img(t_us *us)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (y < us->map.size_y)
@@ -77,17 +76,18 @@ void ft_map_to_img(t_us *us)
 		x = 0;
 		while (x < us->map.size_x)
 		{
-			mlx_put_image_to_window(us->vars.mlx, us->vars.win, ft_textu(us->map.tileset[y][x], us), (int)(x * A_W), (int)(y * A_H));
+			mlx_put_image_to_window(us->vars.mlx, us->vars.win, ft_textu(
+					us->map.tile[y][x], us), (int)(x * A_W), (int)(y * A_H));
 			x++;
 		}
 		y++;
 	}
 }
 
-int map_init(t_us *us, char *filename)
+int	map_init(t_us *us, char *filename)
 {
-	int fd;
-	int err;
+	int	fd;
+	int	err;
 
 	us->map.size_y = map_to_line(filename);
 	fd = ft_open_map(filename);
@@ -100,7 +100,6 @@ int map_init(t_us *us, char *filename)
 	err = map_error(us);
 	if (err)
 	{
-		//delete map and return
 		clean_map(us);
 		printf("Error\n");
 		map_error_msg(err);

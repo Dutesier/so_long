@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-static char	*ft_texture(char *nickname)
+static char	*ft_tex(char *nickname)
 {
 	if (ft_strcmp(nickname, "bg"))
 		return ("./assets/background.png");
@@ -32,22 +32,26 @@ static char	*ft_texture(char *nickname)
 		return (0);
 }
 
-void	ft_init_textures(t_us *us)
+void	ft_init_texs(t_us *us)
 {
-	us->texture.a = mlx_png_file_to_image(us->vars.mlx, ft_texture("0"), &us->texture.img_width, &us->texture.img_height);
-	us->texture.b = mlx_png_file_to_image(us->vars.mlx, ft_texture("1"), &us->texture.img_width, &us->texture.img_height);
-	us->texture.p = mlx_png_file_to_image(us->vars.mlx, ft_texture("P"), &us->texture.img_width, &us->texture.img_height);
-	us->texture.p_alt = mlx_png_file_to_image(us->vars.mlx, ft_texture("A"), &us->texture.img_width, &us->texture.img_height);
-	us->texture.c = mlx_png_file_to_image(us->vars.mlx, ft_texture("C"), &us->texture.img_width, &us->texture.img_height);
-	us->texture.e = mlx_png_file_to_image(us->vars.mlx, ft_texture("E"), &us->texture.img_width, &us->texture.img_height);
-
+	us->tex.a = mlx_png_file_to_image(us->vars.mlx,
+			ft_tex("0"), &us->tex.img_width, &us->tex.img_height);
+	us->tex.b = mlx_png_file_to_image(us->vars.mlx,
+			ft_tex("1"), &us->tex.img_width, &us->tex.img_height);
+	us->tex.p = mlx_png_file_to_image(us->vars.mlx,
+			ft_tex("P"), &us->tex.img_width, &us->tex.img_height);
+	us->tex.p_alt = mlx_png_file_to_image(us->vars.mlx,
+			ft_tex("A"), &us->tex.img_width, &us->tex.img_height);
+	us->tex.c = mlx_png_file_to_image(us->vars.mlx,
+			ft_tex("C"), &us->tex.img_width, &us->tex.img_height);
+	us->tex.e = mlx_png_file_to_image(us->vars.mlx,
+			ft_tex("E"), &us->tex.img_width, &us->tex.img_height);
 }
 
-void *ft_textu(char tile, t_us *us)
+void	*ft_textu(char tile, t_us *us)
 {
 	if (tile == '1')
-		return (us->texture.b);
+		return (us->tex.b);
 	else
-		return (us->texture.a);
+		return (us->tex.a);
 }
-

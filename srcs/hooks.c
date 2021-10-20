@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-int key_movement(int keycode, t_us *us)
+int	key_movement(int keycode, t_us *us)
 {
 	store_move(keycode, us);
 	if (move(us))

@@ -12,9 +12,9 @@
 
 #include "so_long.h"
 
-int		ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -50,7 +50,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 char	*ft_strchr(const char *s, int c)
 {
-	char *d;
+	char	*d;
 
 	d = (char *)s;
 	while (*d != '\0')

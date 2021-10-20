@@ -6,7 +6,7 @@
 #    By: dareias- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 19:34:16 by dareias-          #+#    #+#              #
-#    Updated: 2021/10/19 20:24:57 by dareias-         ###   ########.fr        #
+#    Updated: 2021/10/20 15:30:03 by dareias-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,8 +50,10 @@ SRCS	= srcs/main.c \
 		  render/map_checker_utils.c \
 		  render/sprite.c \
 		  render/tile.c \
+		  render/move_count.c \
 		  utils/ft_strcmp.c \
 		  utils/cleaning.c \
+		  utils/ft_itoa.c \
 		  gnl/get_next_line.c \
 		  gnl/get_next_line_utils.c \
 		  

@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-int	map_to_line(char *filename) // Need to open and close file to reset read location
+int	map_to_line(char *filename)
 {
 	int		ret;
 	int		nl;
@@ -21,7 +21,7 @@ int	map_to_line(char *filename) // Need to open and close file to reset read loc
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-			return (-1);
+		return (-1);
 	ret = 1;
 	nl = -1;
 	while (ret > 0)
@@ -32,30 +32,30 @@ int	map_to_line(char *filename) // Need to open and close file to reset read loc
 	}
 	close(fd);
 	if (ret < 0)
-		return (-1); // or some error msg
+		return (-1);
 	return (nl);
 }
 
 int	map_len(t_us *us)
 {
-	int len;
-	int y;
+	int	len;
+	int	y;
 
 	y = 0;
 	len = us->map.size_x;
-	while (us->map.tileset[y] != NULL)
+	while (us->map.tile[y] != NULL)
 	{
-		if (ft_strlen(us->map.tileset[y]) != len)
+		if (ft_strlen(us->map.tile[y]) != len)
 			return (1);
 		y++;
 	}
 	return (0);
 }
 
-int map_closed(t_us *us)
+int	map_closed(t_us *us)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (y < us->map.size_y)
@@ -63,9 +63,11 @@ int map_closed(t_us *us)
 		x = 0;
 		while (x < us->map.size_x)
 		{
-			if ((y == 0 || y == us->map.size_y - 1) && us->map.tileset[y][x] != '1')
+			if ((y == 0 || y == us->map.size_y - 1)
+				&& us->map.tile[y][x] != '1')
 				return (1);
-			if ((x == 0 || x == us->map.size_x - 1) && us->map.tileset[y][x] != '1')
+			if ((x == 0 || x == us->map.size_x - 1)
+				&& us->map.tile[y][x] != '1')
 				return (1);
 			x++;
 		}
@@ -81,10 +83,10 @@ int	is_invalid_key(char k)
 	return (0);
 }
 
-int map_min(t_us *us, int p, int e, int c)
+int	map_min(t_us *us, int p, int e, int c)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (y < us->map.size_y)
@@ -92,11 +94,11 @@ int map_min(t_us *us, int p, int e, int c)
 		x = 0;
 		while (x < us->map.size_x)
 		{
-			if (us->map.tileset[y][x] == 'P')
+			if (us->map.tile[y][x] == 'P')
 				p++;
-			if (us->map.tileset[y][x] == 'E')
+			if (us->map.tile[y][x] == 'E')
 				e++;
-			if (us->map.tileset[y][x] == 'C')
+			if (us->map.tile[y][x] == 'C')
 				c++;
 			x++;
 		}

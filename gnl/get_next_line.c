@@ -36,15 +36,15 @@ static char	*ft_separate_line(char **line, char *holder_fd, int ret)
 	i = 0;
 	while (holder_fd[i] != '\n' && holder_fd[i] != '\0')
 		i++;
-	if (i < ft_strlen(holder_fd)) // if it has a newline somewhen in the string (holder_fd)
+	if (i < ft_strlen(holder_fd))
 	{
-		*line = ft_substr(holder_fd, 0, i); // We store in line the substr of holder up to the newline char
-		temp = ft_substr(holder_fd, i + 1, ft_strlen(holder_fd)); // and we store the remainder of holder_fd in new holder_fd
+		*line = ft_substr(holder_fd, 0, i);
+		temp = ft_substr(holder_fd, i + 1, ft_strlen(holder_fd));
 		free(holder_fd);
 		holder_fd = ft_strdup(temp);
 		free(temp);
 	}
-	else if (ret == 0) // already read till EOF
+	else if (ret == 0)
 	{
 		*line = holder_fd;
 		holder_fd = NULL;
@@ -61,12 +61,12 @@ int	get_next_line(int fd, char **line, int ret)
 		return (-1);
 	while (ret > 0)
 	{
-		ret = read(fd, buff, BUFFER_SIZE); // Read from the file into buff at BUFFER_SIZE chuncks
-		if (ret < 0) // If it cannot be read
+		ret = read(fd, buff, BUFFER_SIZE);
+		if (ret < 0)
 			return (-1);
-		buff[ret] = '\0'; // Null terminate the buffer
-		holder[fd] = ft_store_line(buff, holder[fd]); // Store in holder what I've read
-		if (ft_strchr(buff, '\n')) // If i've already started reading into the next line -> break
+		buff[ret] = '\0';
+		holder[fd] = ft_store_line(buff, holder[fd]);
+		if (ft_strchr(buff, '\n'))
 			break ;
 	}
 	if (ret <= 0 && !holder[fd])
@@ -74,8 +74,8 @@ int	get_next_line(int fd, char **line, int ret)
 		*line = ft_strdup("");
 		return (ret);
 	}
-	holder[fd] = ft_separate_line(line, holder[fd], ret); // We store in char **line up to the \n char
-	if (ret <= 0 && !holder[fd]) // if we've reached EOF
+	holder[fd] = ft_separate_line(line, holder[fd], ret);
+	if (ret <= 0 && !holder[fd])
 		return (ret);
 	return (1);
 }

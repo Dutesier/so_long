@@ -12,10 +12,10 @@
 
 #include "so_long.h"
 
-int map_keys(t_us *us)
+int	map_keys(t_us *us)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (y < us->map.size_y)
@@ -23,8 +23,8 @@ int map_keys(t_us *us)
 		x = 0;
 		while (x < us->map.size_x)
 		{
-			if (is_invalid_key(us->map.tileset[y][x]))
-				return (1); // Some error msg
+			if (is_invalid_key(us->map.tile[y][x]))
+				return (1);
 			x++;
 		}
 		y++;
@@ -44,7 +44,7 @@ void	map_error_msg(int error)
 		printf("Contains Invalid keys\n");
 }
 
-int map_error(t_us *us)
+int	map_error(t_us *us)
 {
 	if (map_len(us))
 		return (1);
@@ -54,5 +54,5 @@ int map_error(t_us *us)
 		return (3);
 	if (map_keys(us))
 		return (4);
-	return (0);	
+	return (0);
 }

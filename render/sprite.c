@@ -14,10 +14,10 @@
 
 void	update_direction(t_us *us)
 {
-	if (us->player.x > us->player.next_x)
-		us->player.d = 'L';
-	if (us->player.x < us->player.next_x)
-		us->player.d = 'R';
+	if (us->p.x > us->p.next_x)
+		us->p.d = 'L';
+	if (us->p.x < us->p.next_x)
+		us->p.d = 'R';
 }
 
 void	fetch_p_location(t_us *us)
@@ -31,10 +31,10 @@ void	fetch_p_location(t_us *us)
 		x = 0;
 		while (x < us->map.size_x)
 		{
-			if (us->map.tileset[y][x] == 'P')
+			if (us->map.tile[y][x] == 'P')
 			{
-				us->player.x = x;
-				us->player.y = y;
+				us->p.x = x;
+				us->p.y = y;
 				return ;
 			}
 			x++;
@@ -46,10 +46,12 @@ void	fetch_p_location(t_us *us)
 
 void	render_sprite(t_us *us)
 {
-	if (us->player.x < 0 && us->player.y < 0)
-		fetch_p_location(us);	
-	if (us->player.d == 'L')
-		mlx_put_image_to_window(us->vars.mlx, us->vars.win, us->texture.p_alt, us->player.x * A_W, us->player.y * A_H);
+	if (us->p.x < 0 && us->p.y < 0)
+		fetch_p_location(us);
+	if (us->p.d == 'L')
+		mlx_put_image_to_window(us->vars.mlx, us->vars.win,
+			us->tex.p_alt, us->p.x * A_W, us->p.y * A_H);
 	else
-		mlx_put_image_to_window(us->vars.mlx, us->vars.win, us->texture.p, us->player.x * A_W, us->player.y * A_H);
+		mlx_put_image_to_window(us->vars.mlx, us->vars.win,
+			us->tex.p, us->p.x * A_W, us->p.y * A_H);
 }
