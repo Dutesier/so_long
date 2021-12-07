@@ -12,19 +12,17 @@ Instructions part.
 
 ### Usage
 The program must have one single argument, a .ber file that is a map representing the size of the map and the location of specific elements.
-The map must be composed of only 5 possible characters: 0 for an empty
-space, 1 for a wall, C for a collectible, E for map exit and P for the player’s
-starting position.
+The map must be composed of only 5 possible characters: 0 for an empty space, 1 for a wall, C for a collectible, E for map exit and P for the player’s starting position.
 This is a simple valid map:
-'''
+```
 1111111111111
 10010000000C1
 1000011111001
 1P0011E000001
 1111111111111
-'''
-◦ The map must be closed/surrounded by walls, if not the program must return
+```
+The map must be closed/surrounded by walls, if not the program must return
 an error.
-◦ Map must have at least one exit, one collectible, and one starting position.
-◦ You don’t need to check if there’s a valid path in the map.
-◦ The map must be rectangular
+Map must have at least one exit, one collectible, and one starting position.
+You don’t need to check if there’s a valid path in the map.
+The map must be rectangular
